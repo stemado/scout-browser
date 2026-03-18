@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Give Claude Code a browser. Scout page structure, interact with websites, and export replayable automations.",
   "license": "MIT",
-  "repository": "https://github.com/mtsteinle/scout-browser",
-  "homepage": "https://github.com/mtsteinle/scout-browser",
+  "repository": "https://github.com/stemado/scout-browser",
+  "homepage": "https://github.com/stemado/scout-browser",
   "author": {
     "name": "mtsteinle"
   },
