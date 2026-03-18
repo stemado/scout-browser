@@ -48,10 +48,10 @@ If issues are found, fix and commit.
 ### 2. Create GitHub Repo
 
 ```bash
-gh repo create mtsteinle/scout-browser --public --source=. --push
+gh repo create stemado/scout-browser --public --source=. --push
 ```
 
-Verify the repo is live at https://github.com/mtsteinle/scout-browser
+Verify the repo is live at https://github.com/stemado/scout-browser
 
 ### 3. Submit to Anthropic
 
@@ -68,11 +68,11 @@ Scout gives Claude Code a browser. It scouts page structure (~200 tokens vs ~124
 
 **Is this plugin for Claude Code or Cowork?** Claude Code
 
-**Link to GitHub:** https://github.com/mtsteinle/scout-browser
+**Link to GitHub:** https://github.com/stemado/scout-browser
 
-**Company/Organization URL:** https://github.com/mtsteinle
+**Company/Organization URL:** https://github.com/stemado
 
-**Primary Contact Email:** frankdoherty1921@gmail.com
+**Primary Contact Email:** istemado@gmail.com
 
 **Plugin Examples:**
 
