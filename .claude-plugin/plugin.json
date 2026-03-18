@@ -6,7 +6,7 @@
   "repository": "https://github.com/stemado/scout-browser",
   "homepage": "https://github.com/stemado/scout-browser",
   "author": {
-    "name": "mtsteinle"
+    "name": "Stephen Doherty"
   },
   "category": "automation",
   "keywords": ["browser", "automation", "web-scraping", "workflow", "browser-automation"]
