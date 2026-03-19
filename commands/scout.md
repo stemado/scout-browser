@@ -9,6 +9,8 @@ Open a browser and scout the page structure of the provided URL. Follow these st
 
 1. Call `launch_session` with the URL from the user's argument. Use headed mode (headless=false) so the user can observe.
 
+   **Localhost detection:** If the URL targets localhost, 127.0.0.1, [::1], or any other loopback address, extract the port number from the URL and pass it as `allow_localhost_port=<port>` to `launch_session`. If no explicit port is in the URL, use 80 for http or 443 for https.
+
 2. Call `scout_page_tool` with the session_id to get a compact page overview (metadata, iframes, shadow DOM, element counts).
 
 3. Present the scout report to the user in a clear summary:
