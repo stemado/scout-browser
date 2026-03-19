@@ -2,7 +2,7 @@
   "mcpServers": {
     "scout": {
       "command": "npx",
-      "args": ["-y", "@stemado/scout-mcp"],
+      "args": ["-y", "@stemado/scout-mcp@latest"],
       "env": {}
     }
   }
