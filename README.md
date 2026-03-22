@@ -1,6 +1,6 @@
 # Scout — Browser Automation for Claude Code
 
-[![Version](https://img.shields.io/badge/version-1.1.0-blue)](https://github.com/stemado/scout-browser/releases)
+[![Version](https://img.shields.io/badge/version-1.1.1-blue)](https://github.com/stemado/scout-browser/releases)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![MCP Server](https://img.shields.io/npm/v/@stemado/scout-mcp?label=scout-mcp)](https://www.npmjs.com/package/@stemado/scout-mcp)
 
@@ -18,7 +18,7 @@ Playwright is built for developers writing test scripts. Scout is built for **Cl
 | **Sites that block automation** | Works — realistic browser fingerprinting | Often blocked |
 | **Credential handling** | `fill_secret` — credentials stay in `.env`, never sent to AI | No built-in credential isolation |
 | **Output** | Standalone Python scripts you can schedule | Requires Playwright runtime |
-| **Claude integration** | 3 commands + auto-trigger skill + system prompt | MCP wrapper only |
+| **Claude integration** | 3 skills + auto-trigger + system prompt | MCP wrapper only |
 
 ## Prerequisites
 
@@ -30,13 +30,7 @@ Scout checks your environment automatically on startup and reports any missing d
 
 ## Install
 
-From the Claude Code plugin marketplace:
-
-```
-/plugin install scout@claude-plugins-official
-```
-
-Or install directly from GitHub:
+Install from GitHub:
 
 ```
 /plugin marketplace add stemado/scout-browser
@@ -61,11 +55,13 @@ Claude **automatically knows how to use Scout**. The plugin includes a browsing 
 
 Claude launches a browser, scouts the page, navigates step by step, and reports what it finds.
 
-## Commands
+## Skills
 
 ### `/scout:scout <url>`
 
 Open a browser and scout a website's page structure. Returns a compact overview of metadata, iframes, shadow DOM boundaries, and interactive elements. The session stays alive for follow-up interactions — click buttons, fill forms, navigate pages.
+
+This skill also auto-triggers when you mention browsing, automation, or page structure in conversation — no slash command required.
 
 ### `/scout:export-workflow [name]`
 

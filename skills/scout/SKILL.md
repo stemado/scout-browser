@@ -1,9 +1,38 @@
 ---
 name: scout
 description: "Use when the user asks to automate a website, scout a page, explore page structure, build an automation script, navigate a portal, log into a site, inspect iframes or shadow DOM, or download files from a web application. Trigger phrases include scout, automate this site, explore this page, figure out how this works, what does this page look like, navigate to, open a browser, browse this site, find elements, find the button."
+argument-hint: "<url>"
+allowed-tools:
+  - "mcp__plugin_scout_scout__*"
 ---
 
 You have access to a live browser via the `scout` MCP server. It launches a browser session (Botasaurus) and lets you interactively explore websites through Chrome DevTools Protocol.
+
+## When invoked with a URL
+
+If the user provides a URL (via `/scout:scout <url>` or naturally in conversation):
+
+1. Call `launch_session` with the URL. Use headed mode (headless=false) so the user can observe.
+
+   **Localhost detection:** If the URL targets localhost, 127.0.0.1, [::1], or any other loopback address, extract the port number from the URL and pass it as `allow_localhost_port=<port>` to `launch_session`. If no explicit port is in the URL, use 80 for http or 443 for https.
+
+2. Call `scout_page_tool` with the session_id to get a compact page overview.
+
+3. Present the scout report to the user:
+   - Page title and URL
+   - Number of iframes (noting any cross-origin)
+   - Shadow DOM boundaries found
+   - Element counts by type (buttons, inputs, links, etc.)
+
+4. Ask the user what they'd like to do next:
+   - Find specific elements (use `find_elements` with a query)
+   - Explore further (click, type, navigate)
+   - Export the session as an automation script
+   - Close the session
+
+Keep the session alive for follow-up interactions. Do NOT close it unless the user asks.
+
+If no URL is provided and the context doesn't imply one, ask the user what site they want to scout.
 
 ## Core Workflow: Scout -> Find -> Act
 

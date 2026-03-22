@@ -1,4 +1,5 @@
 ---
+name: export-workflow
 description: Export the current browser session as a replayable Python workflow script
 argument-hint: "[workflow-name]"
 allowed-tools:

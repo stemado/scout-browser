@@ -1,4 +1,5 @@
 ---
+name: schedule
 description: Schedule an exported workflow to run automatically via OS task manager
 argument-hint: "[list | workflow-name <when> | delete <name-or-id>]"
 allowed-tools:
