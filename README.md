@@ -1,6 +1,6 @@
 # Scout — Browser Automation for Claude Code
 
-[![Version](https://img.shields.io/badge/version-1.1.2-blue)](https://github.com/stemado/scout-browser/releases)
+[![Version](https://img.shields.io/badge/version-1.1.2-blue)](https://github.com/stolen-fire/scout-browser/releases)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![MCP Server](https://img.shields.io/npm/v/@stemado/scout-mcp?label=scout-mcp)](https://www.npmjs.com/package/@stemado/scout-mcp)
 
@@ -33,8 +33,8 @@ Scout checks your environment automatically on startup and reports any missing d
 Install from GitHub:
 
 ```
-/plugin marketplace add stemado/scout-browser
-/plugin install scout@stemado-scout-browser
+/plugin marketplace add stolen-fire/scout-browser
+/plugin install scout@stolen-fire-scout-browser
 ```
 
 Or load locally for development:

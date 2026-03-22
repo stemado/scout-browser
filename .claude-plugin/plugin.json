@@ -3,8 +3,8 @@
   "version": "1.1.2",
   "description": "Give Claude Code a browser. Scout page structure, interact with websites, and export replayable automations.",
   "license": "MIT",
-  "repository": "https://github.com/stemado/scout-browser",
-  "homepage": "https://github.com/stemado/scout-browser",
+  "repository": "https://github.com/stolen-fire/scout-browser",
+  "homepage": "https://github.com/stolen-fire/scout-browser",
   "author": {
     "name": "Stephen Doherty"
   },
