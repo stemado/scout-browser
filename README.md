@@ -1,10 +1,10 @@
 # Scout — Browser Automation for Claude Code
 
-[![Version](https://img.shields.io/badge/version-1.1.2-blue)](https://github.com/stolen-fire/scout-browser/releases)
+[![Version](https://img.shields.io/badge/version-1.2.0-blue)](https://github.com/stolen-fire/scout-browser/releases)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![MCP Server](https://img.shields.io/npm/v/@stemado/scout-mcp?label=scout-mcp)](https://www.npmjs.com/package/@stemado/scout-mcp)
 
-Give Claude Code a browser. Scout page structure, interact with websites, and export replayable automations.
+Give Claude Code a browser. Fetch page content, scout page structure, interact with websites, and export replayable automations.
 
 Scout reports cost **~200 tokens** vs ~124,000 for screenshot-based approaches — making browsing cheap enough to be casual.
 
@@ -47,15 +47,33 @@ claude --plugin-dir ./scout-browser
 
 Claude **automatically knows how to use Scout**. The plugin includes a browsing skill that triggers whenever you mention websites, automation, page structure, or browsing — no slash command required. Just say what you need:
 
-> "Log into our vendor portal and download this month's invoice."
-
 > "What does the signup flow look like on example.com?"
+
+> "Log into our vendor portal and download this month's invoice."
 
 > "Automate checking our benefits platform for open enrollment status."
 
-Claude launches a browser, scouts the page, navigates step by step, and reports what it finds.
+**Two modes, automatically chosen:**
+
+- **`browse`** — For read-only tasks. One tool call fetches a URL, extracts clean markdown content, and returns it. No browser session needed. Handles bot-protected sites automatically via stealth browser fallback.
+- **Full session** — For interactive tasks. Launches a persistent browser for clicking, typing, navigating, and building automation scripts.
+
+Claude picks the right mode based on your request — `browse` for reading content, a full session for interacting with pages.
 
 ## Skills
+
+### `browse` (auto-triggered)
+
+Fetch a web page and extract its content as clean markdown. One tool call, no browser session required.
+
+```
+browse(url="https://docs.example.com/api-reference")
+browse(url="https://example.com/changelog", query="breaking changes")
+```
+
+Parameters: `url` (required), `query` (optional — extract only relevant passages), `max_length` (optional — default 5000 chars, 0 = unlimited).
+
+Uses HTTP by default with automatic stealth browser fallback for bot-protected sites. Content extraction via trafilatura strips navigation, ads, and footers — returning just the article content.
 
 ### `/scout:scout <url>`
 
@@ -101,11 +119,17 @@ Schedule exported workflows to run automatically using your OS task manager (Win
 
 ## The Lifecycle
 
+**Quick path** — just need content:
+```
+Browse  →  Done
+```
+
+**Full path** — need to interact:
 ```
 Scout  →  Interact  →  Export  →  Schedule
 ```
 
-1. **Scout** a page to understand its structure
+1. **Browse** a page to read its content (or **Scout** to explore its structure)
 2. **Interact** — click, type, navigate through the workflow
 3. **Export** the session as a standalone Python script
 4. **Schedule** it to run on a recurring basis
