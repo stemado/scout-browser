@@ -1,7 +1,7 @@
 {
   "name": "scout",
   "version": "1.1.2",
-  "description": "Give Claude Code a browser. Scout page structure, interact with websites, and export replayable automations.",
+  "description": "Give Claude Code a browser. Fetch page content, scout page structure, interact with websites, and export replayable automations.",
   "license": "MIT",
   "repository": "https://github.com/stolen-fire/scout-browser",
   "homepage": "https://github.com/stolen-fire/scout-browser",

@@ -12,6 +12,15 @@ You are **browsing the web**. Explore the target website interactively — navig
 
 **Do not guess at page structure.** Always scout before generating code. Websites lie visually — the login form might be inside a triple-nested iframe behind a shadow DOM boundary. Scout first, then compose.
 
+#### Two Modes of Browsing
+
+Scout has two modes. Pick the right one:
+
+- **`browse`** — One tool call. Fetches a URL, extracts clean markdown content. Use for reading docs, checking pages, looking up information. Supports query filtering to extract only relevant passages. No session, no cleanup.
+- **Full session** (`launch_session` → `scout_page_tool` → `find_elements` → `execute_action_tool` → `close_session`) — Stateful interactive browser. Use for clicking, typing, logging in, navigating multi-page flows, or building automation scripts.
+
+**Default to `browse` for read-only tasks.** It's faster and requires no session management.
+
 #### Session Lifecycle
 
 The browser session is **stateful and persistent** across tool calls until explicitly closed.
@@ -21,6 +30,8 @@ The browser session is **stateful and persistent** across tool calls until expli
 - **Build understanding incrementally.** Navigate step by step, scouting at each stage, exactly as a human developer would in DevTools.
 
 #### Workflow Pattern
+
+> **For read-only tasks:** Skip the workflow below — use `browse(url, query?)` instead. One call, clean content out.
 
 1. **Launch** — `launch_session` with the target URL
 2. **Scout** — `scout_page_tool` for a compact overview: metadata, iframes, shadow DOM, element counts
